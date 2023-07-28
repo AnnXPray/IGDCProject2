@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 4383426158371730673}
   - component: {fileID: 4383426158371730685}
   - component: {fileID: 4383426158371730682}
+  - component: {fileID: 1239756140}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,7 +272,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JumpPower: 17
   isGround: 0
-  Life: 5
+  Life: 50
+  isdie: 0
+  spriteRenderer: {fileID: 4383426158371730687}
 --- !u!95 &4383426158371730682
 Animator:
   serializedVersion: 5
@@ -293,3 +296,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!70 &1239756140
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4383426158371730672}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00000010786604, y: 1.0951544}
+  m_Size: {x: 4.020001, y: 2.190325}
+  m_Direction: 1
