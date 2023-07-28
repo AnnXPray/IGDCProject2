@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMoving : MonoBehaviour
@@ -9,15 +10,19 @@ public class PlayerMoving : MonoBehaviour
     public bool isGround;
     int JumpScore = 0;
     public int Life = 5;
+    public bool isdie = false;
+    bool isUnbeatTime = false;
 
 
     Rigidbody2D rigid;
     Animator anim;
+    public SpriteRenderer spriteRenderer;
 
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -25,7 +30,15 @@ public class PlayerMoving : MonoBehaviour
     {
         if (isGround)
         {
-            ChangeAnim(State.Run);
+            if (!isdie)
+            {
+                ChangeAnim(State.Run);
+            }
+            else if (isdie)
+            {
+                ChangeAnim(State.Hit);
+                rigid.simulated = false;
+            }
             gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
             gameObject.GetComponent<PolygonCollider2D>().enabled = true;
         }
@@ -65,13 +78,14 @@ public class PlayerMoving : MonoBehaviour
     // 4. 장애물 터치 (트리거 충돌 이벤트)
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "obstacle")
+        if (other.gameObject.tag == "obstacle" && isUnbeatTime == false)
         {
+            isUnbeatTime = true;
+            StartCoroutine("Break");
             --Life;
             if (Life == 0)
             {
-                ChangeAnim(State.Hit);
-                rigid.simulated = false;
+                Die();
             }
         }
     }
@@ -81,4 +95,39 @@ public class PlayerMoving : MonoBehaviour
     {
         anim.SetInteger("State", (int)state); 
     }
+
+    void Die()
+    {
+        isdie = true;
+        
+    }
+
+    IEnumerator Break()
+    {
+        int countTime = 0;
+        while(countTime < 10)
+        {
+            if (countTime % 2 == 0)
+            {
+                spriteRenderer.enabled = false;
+                Debug.Log("adsf");
+            }
+            else
+            {
+                spriteRenderer.enabled = true;
+            }
+
+            yield return new WaitForSeconds(0.2f);
+
+            countTime++;
+        }
+
+        spriteRenderer.enabled = true;
+        isUnbeatTime = false;
+
+        yield return null;
+    }
+        
+        
+    
 }

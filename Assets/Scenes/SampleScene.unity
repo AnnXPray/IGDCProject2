@@ -3437,6 +3437,11 @@ CapsuleCollider2D:
   m_Offset: {x: -0.00000010786604, y: 1.0951544}
   m_Size: {x: 4.020001, y: 2.190325}
   m_Direction: 1
+--- !u!212 &1239756145 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4383426158371730687, guid: eaf8d05b7a6208842b8f942f67a855cb, type: 3}
+  m_PrefabInstance: {fileID: 4383426157371729286}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1286051585 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1270676474009027107, guid: 18ab3ce345664fc42857795fb827e96f, type: 3}
@@ -5950,7 +5955,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4383426158371730685, guid: eaf8d05b7a6208842b8f942f67a855cb, type: 3}
       propertyPath: Life
-      value: 50
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383426158371730685, guid: eaf8d05b7a6208842b8f942f67a855cb, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1239756145}
+    - target: {fileID: 4383426158371730687, guid: eaf8d05b7a6208842b8f942f67a855cb, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383426158371730687, guid: eaf8d05b7a6208842b8f942f67a855cb, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383426158371730687, guid: eaf8d05b7a6208842b8f942f67a855cb, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383426158371730687, guid: eaf8d05b7a6208842b8f942f67a855cb, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaf8d05b7a6208842b8f942f67a855cb, type: 3}
